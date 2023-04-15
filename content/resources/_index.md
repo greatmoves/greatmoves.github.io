@@ -34,3 +34,6 @@ Useful resources for cyber sec work
 # Digital forensics
 - [Crackstation](https://crackstation.net/) Crack some hashes online.
 - [CyberChef](https://gchq.github.io/CyberChef/) Helpful for encoding and decoding various forms of data.
+- [Volatility](https://github.com/volatilityfoundation/volatility) Volatile memory extraction utility framework. Allows for the
+extraction of digital artifacts from volatile memory (RAM).
+- [WireShark](https://www.wireshark.org/) Network protocol analyzer. Allows for easy packet analysis.
