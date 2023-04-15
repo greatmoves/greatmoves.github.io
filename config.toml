@@ -91,6 +91,6 @@ paginate = 5
         url = "/"
       [[languages.en.menu.main]]
         identifier = "Writeups"
-        name = "Writeups"
+        name = "Write ups"
         url = "/writeups"
 

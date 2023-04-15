@@ -1,5 +1,5 @@
 +++ 
-title = "Knife HTB Writeup"
+title = "Knife HTB Write up"
 description = "Write up for the HTB machine 'Knife'"
 author = "greatmoves"
 tags = ["php", "sudo -l", "gtfobins", "hackthebox"]
