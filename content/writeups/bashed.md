@@ -10,7 +10,7 @@ tags = ["php", "sudo -l", "python", "nikto", "cronjob", "hackthebox"]
 ### Nikto
 cmd: `nikto -host 10.10.10.68`
 
-Our nikto scan reveals to us a number of files and directoires
+Our nikto scan reveals to us a number of files and directories
 - /config.php
 - /css/
 - /dev/
