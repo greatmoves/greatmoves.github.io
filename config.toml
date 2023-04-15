@@ -68,7 +68,7 @@ paginate = 5
   [languages.en]
     languageName = "English"
     title = "greatmoves"
-    subtitle = "A simple, retro theme for Hugo"
+    subtitle = "greatmoves personal website"
     owner = ""
     keywords = ""
     copyright = ""
