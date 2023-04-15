@@ -2,7 +2,7 @@
 title = "Knife HTB Writeup"
 description = "Write up for the HTB machine 'Knife'"
 author = "greatmoves"
-tags = ["php", "sudo -l", "hackthebox"]
+tags = ["php", "sudo -l", "gtfobins", "hackthebox"]
 +++
 
 ## Recon
