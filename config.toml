@@ -64,6 +64,9 @@ paginate = 5
   creator = ""
   site = ""
 
+[markup.goldmark.renderer]
+  unsafe = true # Allow HTML in md files
+
 [languages]
   [languages.en]
     languageName = "English"

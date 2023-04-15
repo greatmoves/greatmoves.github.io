@@ -1,8 +1,13 @@
 +++
-framed = true
+frame = true
 title = 'Blog'
 +++
 
-# Blog
+<div class="framed"> 
+<h1> Blog </h1>
 
 Blog...
+</div>
+
+
+
