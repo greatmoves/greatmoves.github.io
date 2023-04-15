@@ -8,5 +8,5 @@ title = 'Hello world'
 Cyber security
 
 - [GitHub](https://github.com/greatmoves)
-- [TryHackMe profile (top 1%)](https://tryhackme.com/p/greatmoves)
-- [HackTheBox profile](https://app.hackthebox.com/users/1378864)
+- [TryHackMe](https://tryhackme.com/p/greatmoves)
+- [HackTheBox](https://app.hackthebox.com/users/1378864)
