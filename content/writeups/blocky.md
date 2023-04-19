@@ -3,7 +3,8 @@ title = "Blocky HTB Write up"
 description = "Write up for the HTB machine 'Blocky'"
 author = "greatmoves"
 tags = ["wordpress", "sudo -l", "dirbuster", "wpscan", "minecraft" , "hackthebox"]
-date = 2023-03-03- [1. Recon](#1-recon)
+date = 2023-03-03
++++
 - [1. Recon](#1-recon)
   - [1.1. nmap](#11-nmap)
   - [1.2. nikto](#12-nikto)
@@ -11,8 +12,6 @@ date = 2023-03-03- [1. Recon](#1-recon)
   - [1.4. dirbuster](#14-dirbuster)
   - [1.5. jd-gui](#15-jd-gui)
 - [2. Privilege escalation](#2-privilege-escalation)
-
-+++
 
 ## 1. Recon
 ----

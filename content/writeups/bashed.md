@@ -3,12 +3,11 @@ title = "Bashed HTB Write up"
 description = "Write up for the HTB machine 'Bashed'"
 author = "greatmoves"
 tags = ["php", "sudo -l", "python", "nikto", "cronjob", "hackthebox"]
-date = 2023-03-01- [1. Recon](#1-recon)
+date = 2023-03-01
++++
 - [1. Recon](#1-recon)
   - [1.1. Nikto](#11-nikto)
 - [2. Privilege escalation](#2-privilege-escalation)
-
-+++
 
 ## 1. Recon
 ----
