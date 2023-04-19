@@ -3,7 +3,7 @@ title = "Knife HTB Write up"
 description = "Write up for the HTB machine 'Knife'"
 author = "greatmoves"
 tags = ["php", "sudo -l", "gtfobins", "hackthebox"]
-date = 2023-04-15
+date = 2023-03-01
 +++
 
 ## Recon

