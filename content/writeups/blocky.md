@@ -3,17 +3,25 @@ title = "Blocky HTB Write up"
 description = "Write up for the HTB machine 'Blocky'"
 author = "greatmoves"
 tags = ["wordpress", "sudo -l", "dirbuster", "wpscan", "minecraft" , "hackthebox"]
-date = 2023-03-03
+date = 2023-03-03- [1. Recon](#1-recon)
+- [1. Recon](#1-recon)
+  - [1.1. nmap](#11-nmap)
+  - [1.2. nikto](#12-nikto)
+  - [1.3. wpscan](#13-wpscan)
+  - [1.4. dirbuster](#14-dirbuster)
+  - [1.5. jd-gui](#15-jd-gui)
+- [2. Privilege escalation](#2-privilege-escalation)
+
 +++
 
-## Recon
+## 1. Recon
 ----
-### nmap
+### 1.1. nmap
 cmd: `nmap -sC -sV {target-ip}`
 
 Our nmap scan reveals port port 21-ftp, 22-ssh and port 80-http.
 
-### nikto
+### 1.2. nikto
 cmd: `nikto -host {target-ip}`
 
 Our nikto scan reveals the site is vulnerable to XSS
@@ -23,14 +31,14 @@ Our nikto scan reveals the site is vulnerable to XSS
 
 It also reveals the url for the web application, `blocky.htb`, so let's add that to /etc/hosts
 
-### wpscan
+### 1.3. wpscan
 cmd: `wpscan --url http://blocky.htb -e u `
 
 Scrolling to the bottom of the web app we can see that it is powered by WordPress, so let's run wpscan
 
 from wps scan we can see that there is a user `notch`
 
-### dirbuster
+### 1.4. dirbuster
 cmd: `dirb http://blocky.htb`
 
 since we know it is a WordPress site, let's also run dirbuster to see what else we can find
@@ -39,7 +47,7 @@ after the scan has run let's enumerate through the directories it found.
 
 at `/plugins` there are two files that we can download
 
-### jd-gui
+### 1.5. jd-gui
 cmd: `jd-gui BlockyCore.jar`
 
 using `jd-gui` we can decompile both of the `.jar` files
@@ -51,7 +59,7 @@ from there we are able to ssh in to the machine with the credentials
 notch:8YsqfCTnvxAUeduzjNSXe22
 ```
 
-## Privilege escalation
+## 2. Privilege escalation
 ----
 `sudo -l` reveals:
 

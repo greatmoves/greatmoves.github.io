@@ -3,12 +3,16 @@ title = "Bashed HTB Write up"
 description = "Write up for the HTB machine 'Bashed'"
 author = "greatmoves"
 tags = ["php", "sudo -l", "python", "nikto", "cronjob", "hackthebox"]
-date = 2023-03-01
+date = 2023-03-01- [1. Recon](#1-recon)
+- [1. Recon](#1-recon)
+  - [1.1. Nikto](#11-nikto)
+- [2. Privilege escalation](#2-privilege-escalation)
+
 +++
 
-## Recon
+## 1. Recon
 ----
-### Nikto
+### 1.1. Nikto
 cmd: `nikto -host 10.10.10.68`
 
 Our nikto scan reveals to us a number of files and directories
@@ -36,7 +40,7 @@ This means we don't need a password to move from our user `www-data` to the user
 
 `/home/arrexel` is where we can find `user.txt`
 
-## Privilege escalation
+## 2. Privilege escalation
 ----
 Through further enumeration of the file system we can see that there is a `/scripts/` folder in the root of the file system.
 
