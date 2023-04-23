@@ -58,9 +58,15 @@ Now we need to find what to do with a `.msg` file. Thankfully we can use `https:
 
 Now we've got a `.evtx` file and we've gotta figure out what to do with that.
 - here's a python module that can help with that `https://pypi.org/project/python-evtx/`
-  - run `python3 evtx_dump.py security.evtx > out.file`
+  - run `python3 evtx_dump.py security.evtx > out.json`
 
-From the evtx file we can find a password: `Def@ultf0r3nz!csPa$$`
+In the event logs we can look for basic logon events [Audit logon events (Windows)](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/basic-audit-logon-events)
+- The code `4625` is for a `Logon failure. A logon attempt was made with an unknown user name or a known user name with a bad password.`
+
+We can search for this in the event log using `grep`
+- `cat out.json | grep "4625" -C 10 > grep.out`
+  
+From the output of our grep command we can find a password: `Def@ultf0r3nz!csPa$$`
 
 Now we can ssh into the machine with the credentials
 ```
