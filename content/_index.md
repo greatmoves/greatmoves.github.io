@@ -7,6 +7,6 @@ title = 'Hello world'
 
 Cyber security
 
-- [GitHub](https://github.com/greatmoves)
-- [TryHackMe](https://tryhackme.com/p/greatmoves)
-- [HackTheBox](https://app.hackthebox.com/users/1378864)
+- <a href="https://github.com/greatmoves" target="_blank">GitHub</a>
+- <a href="https://tryhackme.com/p/greatmoves" target="_blank">TryHackMe</a>
+- <a href="https://app.hackthebox.com/users/1378864" target="_blank">HackTheBox</a>
