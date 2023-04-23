@@ -96,7 +96,7 @@ from this we can gather that
 - `lDnxUysaQn` has some significance
 
 #### 4.1.1. binary ninja
-binary ninja allows us to decompile the binary
+binary ninja allows us to decompile the binary and get an idea of what the main function of the binary is doing
 {{< highlight c "linenos=inline" >}}
     0000144a      if (argc != 3)
     00001453          puts(str: "Exiting... ")
