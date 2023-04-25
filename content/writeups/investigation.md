@@ -3,7 +3,7 @@ title = "Investigation HTB Write up"
 description = "Write up for the HTB machine 'Investigation'"
 author = "greatmoves"
 tags = ["exiftool", "perl", "hackthebox", "binary ninja", "reverse engineering", "sudo -l", "digital forensics"]
-date = 2023-04-23
+date = 2023-03-02
 +++
 - [1. Initial Recon](#1-initial-recon)
   - [1.1. nmap](#11-nmap)
