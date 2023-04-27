@@ -2,7 +2,7 @@
 title = "Blocky HTB Write up"
 description = "Write up for the HTB machine 'Blocky'"
 author = "greatmoves"
-tags = ["wordpress", "sudo -l", "dirbuster", "wpscan", "minecraft" , "hackthebox"]
+tags = ["wordpress", "sudo -l", "dirbuster", "wpscan", "minecraft" , "hackthebox", "linux"]
 date = 2023-03-03
 +++
 - [1. Recon](#1-recon)
