@@ -6,8 +6,6 @@ title = 'Blog'
 <div class="framed"> 
 <h1> Blog </h1>
 
-Blog...
+- <a href="https://greatmoves.xyz/blog/goodreads/" target="_self">Books</a>
+
 </div>
-
-
-
