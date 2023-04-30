@@ -2,7 +2,7 @@
 title = "MetaTwo HTB Write up"
 description = "Write up for the HTB machine 'MetaTwo'"
 author = "greatmoves"
-tags = ["linux", "easy", "wpscan", "wordpress", "sqli", "sqlmap", "johntheripper", "gpg2john", "passpie", "ftp"]
+tags = ["linux", "easy", "wpscan", "wordpress", "sqli", "sqlmap", "johntheripper", "gpg2john", "passpie", "ftp","hackthebox"]
 date = 2023-02-26
 +++
 - [1. Initial recon](#1-initial-recon)
