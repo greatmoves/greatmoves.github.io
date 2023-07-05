@@ -96,13 +96,4 @@ paginate = 4
       [[languages.en.menu.main]]
         identifier = "Write ups"
         name = "Write ups"
-        url = "/writeups"
-      [[languages.en.menu.main]]
-        identifier = "Blog"
-        name = "Blog"
-        url = "/blog"
-      [[languages.en.menu.main]]
-        identifier = "Resources"
-        name = "Resources"
-        url = "/resources"
-
+        url = "writeups.greatmoves.xyz"
