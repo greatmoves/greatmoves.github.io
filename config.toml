@@ -93,7 +93,7 @@ paginate = 4
         name = "Home"
         url = "/"
         weight = 100
-      [[languages.en.menu.main]]
-        identifier = "Write ups"
-        name = "Write ups"
-        url = "writeups.greatmoves.xyz"
+    [[languages.en.menu.main]]
+      identifier = "Write ups"
+      name = "Write ups"
+      url = "https://writeups.greatmoves.xyz"
