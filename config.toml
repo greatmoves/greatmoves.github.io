@@ -97,7 +97,3 @@ paginate = 4
       identifier = "Write ups"
       name = "Write ups"
       url = "https://writeups.greatmoves.xyz"
-    [[languages.en.menu.main]]
-      identifier = "notes"
-      name = "Notes"
-      url = "https://notes.greatmoves.xyz"
