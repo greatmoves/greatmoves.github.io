@@ -80,20 +80,10 @@ paginate = 4
     readOtherPosts = "Read other posts"
     newerPosts = "Newer posts"
     olderPosts = "Older posts"
-    missingContentMessage = "Page not found..."
+    missingContentMessage = "Page not found... writeups have been moved to writeups.greatmoves.xyz"
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
       logoText = "greatmoves"
       logoHomeLink = "/"
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "Home"
-        name = "Home"
-        url = "/"
-        weight = 100
-    [[languages.en.menu.main]]
-      identifier = "Write ups"
-      name = "Write ups"
-      url = "https://writeups.greatmoves.xyz"
